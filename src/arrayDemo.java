@@ -69,10 +69,55 @@ public class arrayDemo {
 		}
 		System.out.println("the element "+oc+" ocurred in the array for "+count+" times");
 	}
+	public void sorting(int[] zero,int length) {
+		int count0=0;
+		int count1=0;
+		int count2=0;
+		for(int i=0;i<length;i++) {
+			if(zero[i]==0) {
+				count0++;
+			}
+			else
+			if(zero[i]==1) {
+				count1++;
+			}
+			else
+			if(zero[i]==2) {
+				count2++;
+			}
+		}
+		for(int i=0;i<length-1;i++) {
+			if(count0>0) {
+				zero[i]=0;
+				count0--;
+			}
+			else
+		    if(count1>0) {
+		    	zero[i]=1;
+		    	count1--;
+		    }
+		    else
+		    if(count2>0) {
+		    	zero[i]=2;
+		    	count2--;
+		    }
+		}
+		for(int i=0;i<length;i++) {
+			System.out.print(" "+zero[i]);
+		}
+	}
+	public void subarray(int[] suriya,int length,int start,int end) {
+		int sum=0;
+		for(int i=start-1;i<end+1;i++) {
+			sum=suriya[i]+sum;
+		}
+		System.out.println("the sum of array within the given range is "+sum);
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		arrayDemo al=new arrayDemo();
+		int[] zero= {0,2,1,0,0,0,2};
 		int[] suriya= {3,102,4,1,101,5,56,101,23,75,11};
 		al.minmax(suriya,suriya.length);
 		al.reversearray(suriya,suriya.length);
@@ -81,5 +126,8 @@ public class arrayDemo {
 		System.out.println("");
 		al.ktimes(suriya,suriya.length,2,3);
 		al.occur(suriya,suriya.length,101);
+		al.sorting(zero,zero.length);
+		System.out.println("");
+		al.subarray(suriya,suriya.length,2,4);
 		}
 }
